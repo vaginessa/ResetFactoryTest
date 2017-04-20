@@ -40,7 +40,7 @@ public class ResetFactoryActivity extends BaseActivity implements View.OnClickLi
 
     private void initView() {
         btnSettings = (Button) findViewById(R.id.btn_reset_settings);
-        btnStart = (Button) findViewById(R.id.btn_start);
+        btnStart = (Button) findViewById(R.id.btn_reset_start);
         edtResetNum = (EditText) findViewById(R.id.edt_reset_factory_num);
         tvResetLeftNum = (TextView) findViewById(R.id.tv_reset_factory_left_num);
 
@@ -54,7 +54,7 @@ public class ResetFactoryActivity extends BaseActivity implements View.OnClickLi
             case R.id.btn_reset_settings:
                 setResetFactoryParams();
                 break;
-            case R.id.btn_start:
+            case R.id.btn_reset_start:
                 switchAutoFactoryStatus();
                 break;
         }
@@ -77,7 +77,6 @@ public class ResetFactoryActivity extends BaseActivity implements View.OnClickLi
             btnStart.setText("停止");
             satrtAutoResetFactory(this);
         } else {
-            SPUtils.put(this, Constant.AUTO_FACTORY_NUM, 0);
             btnStart.setText("开始");
         }
     }

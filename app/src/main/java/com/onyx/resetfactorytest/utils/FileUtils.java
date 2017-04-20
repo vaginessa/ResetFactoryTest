@@ -92,6 +92,7 @@ public class FileUtils {
                 byte[] buffer = new byte[1024];
                 while ((byteread = fis.read(buffer)) != -1) {
                     fos.write(buffer, 0, byteread);
+                    Log.d("===","===================write======================");
                 }
             } else {
                 Log.d("FileUtils", "src file is not exists! src: " + oldPath);

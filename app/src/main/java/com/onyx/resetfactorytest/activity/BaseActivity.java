@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.onyx.resetfactorytest.R;
@@ -44,6 +45,7 @@ public abstract class BaseActivity extends Activity {
     public void satrtAutoResetFactory(final Context context) {
         int factoryNum = (Integer) SPUtils.get(context, Constant.AUTO_FACTORY_NUM, 0);
         if (factoryNum > 0) {
+            Log.d("===============","================剩余恢复出厂次数===="+factoryNum);
             factoryNum--;
             SPUtils.put(context, Constant.AUTO_FACTORY_NUM, factoryNum);
             FileUtils.copyFileByStream(Constant.DATA_PATH, Constant.EXTERNAL_PATH);

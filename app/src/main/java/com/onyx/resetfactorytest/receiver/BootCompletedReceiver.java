@@ -44,7 +44,11 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         File dir =new File(new File(Constant.DATA_PATH).getParent());
         if(!dir.exists()){
             dir.mkdirs();
+        }
+        File backup =new File(Constant.EXTERNAL_PATH);
+        if(backup.exists()){
             FileUtils.copyFileByStream(Constant.EXTERNAL_PATH,Constant.DATA_PATH);
+            backup.delete();
         }
     }
 }
