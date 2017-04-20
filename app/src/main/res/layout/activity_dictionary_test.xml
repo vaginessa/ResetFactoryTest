@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@drawable/border"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="要检测的SD卡下的文件夹：" />
+
+        <EditText
+            android:id="@+id/edt_file_path"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dictionary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="要检测的文件夹下的文件格式：" />
+
+        <EditText
+            android:id="@+id/edt_file_format"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dz,ifo,idx,yaidx" />
+
+        <CheckBox
+            android:id="@+id/cb_check_md5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="检测md5文件" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自动恢复出厂次数：" />
+
+            <EditText
+                android:id="@+id/edt_num"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:numeric="integer"
+                android:text="2" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:text="剩余次数：" />
+
+            <TextView
+                android:id="@+id/edt_left_num"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="设置"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/auto_factory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="自动恢复出厂设置"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/dict_test_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="自动开机文件检测"
+        android:textSize="20sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/save_report"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:text="保存报告"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/exit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:text="退出"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border"
+        android:layout_marginTop="8dp"
+        android:scrollbars="none">
+
+        <TextView
+            android:id="@+id/warm_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="测试结果："
+            android:textColor="#FF000000"
+            android:textSize="20sp" />
+    </ScrollView>
+</LinearLayout>
