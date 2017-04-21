@@ -11,7 +11,7 @@ import com.onyx.resetfactorytest.R;
 import com.onyx.resetfactorytest.Constant;
 import com.onyx.resetfactorytest.utils.SPUtils;
 
-public class RebootActivity extends BaseActivity implements View.OnClickListener{
+public class RebootActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = RebootActivity.class.getSimpleName();
     private Button btnSettings;
     private Button btnStart;
@@ -44,7 +44,6 @@ public class RebootActivity extends BaseActivity implements View.OnClickListener
         } else {
             tvRebootLeftNum.setText("0");
         }
-        isAutoReboot = (Boolean) (SPUtils.get(this, Constant.IS_AUTO_REBOOT, false));
         updateButtonStatus();
     }
 
@@ -80,13 +79,12 @@ public class RebootActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void updateButtonStatus() {
-        if (isAutoReboot) {
+        int rebootNum = (Integer) SPUtils.get(this, Constant.AUTO_REBOOT_NUM, 0);
+        if (isAutoReboot && rebootNum > 0) {
             btnStart.setText("停止");
             satrtAutoReboot(this);
         } else {
             btnStart.setText("开始");
         }
     }
-
-
 }

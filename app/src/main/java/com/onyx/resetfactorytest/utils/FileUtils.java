@@ -17,13 +17,15 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.onyx.resetfactorytest.activity.RebootActivity;
+
 
 /**
- * Created by 12345 on 2017/4/7.
+ * Created by jaky on 2017/4/7.
  */
 
 public class FileUtils {
-
+    private static final String TAG = FileUtils.class.getSimpleName();
     public static List<File> getSubFileList(File path) {
         if (!path.isDirectory()) {
             return null;
@@ -92,14 +94,14 @@ public class FileUtils {
                 byte[] buffer = new byte[1024];
                 while ((byteread = fis.read(buffer)) != -1) {
                     fos.write(buffer, 0, byteread);
-                    Log.d("===","===================write======================");
+                    Log.d(TAG, "===================copyFileByStream======================");
                 }
             } else {
                 Log.d("FileUtils", "src file is not exists! src: " + oldPath);
             }
         } catch (Exception e) {
-            Log.d("FileUtils", "failed to copy file, src: " + oldPath + ", dest: " + newPath);
-            Log.d("FileUtils", e.toString());
+            Log.d(TAG, "failed to copy file, src: " + oldPath + ", dest: " + newPath);
+            Log.d(TAG, e.toString());
             e.printStackTrace();
         } finally {
             try {

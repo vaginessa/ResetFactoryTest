@@ -1,6 +1,7 @@
 package com.onyx.resetfactorytest;
 
 import com.onyx.resetfactorytest.activity.MainActivity;
+import com.onyx.resetfactorytest.utils.FileUtils;
 
 /**
  * Created by jaky on 2017/4/20.
@@ -20,8 +21,8 @@ public class Constant {
     public static final String IS_AUTO_REBOOT = "is_auto_reboot";
     public static final String AUTO_REBOOT_NUM = "auto_reboot_num";
 
-    public static final String EXTERNAL_PATH = "mnt/sdcard/"+FILLNAME+".xml";
-    public static final String DATA_PATH = "/data/data/com.onyx.resetfactorytest/shared_prefs/"+FILLNAME+".xml";
+    public static final String EXTERNAL_PATH = FileUtils.getSDPath() + "/" + FILLNAME + ".xml";
+    public static final String DATA_PATH = "/data/data/" + Constant.class.getPackage().getName() + "/shared_prefs/" + FILLNAME + ".xml";
 
     public static final String MASTER_CLEAR_BROADCAST = "android.intent.action.MASTER_CLEAR";
     public static final String BOOT_COMPLETED_BROADCAST = "android.intent.action.BOOT_COMPLETED";

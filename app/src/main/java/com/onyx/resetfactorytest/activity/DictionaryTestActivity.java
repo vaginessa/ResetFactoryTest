@@ -97,7 +97,7 @@ public class DictionaryTestActivity extends BaseActivity implements View.OnClick
         if (formatArray != null) {
             checkList = Arrays.asList(formatArray);
             checkList.remove(0);
-            checkList.remove(formatArray.length-1);
+            checkList.remove(formatArray.length - 1);
         } else {
             checkList.add("dz");
             checkList.add("ifo");
@@ -122,7 +122,6 @@ public class DictionaryTestActivity extends BaseActivity implements View.OnClick
         cbCheckMD5.setSelected(isCheckMD5);
 
         isCheck = (Boolean) (SPUtils.get(this, Constant.IS_CHECK_DICTIONARY_FILE, false));
-        isAutoFactory = (Boolean) (SPUtils.get(this, Constant.IS_AUTO_FACTORY, false));
         updateButtonStatus();
     }
 
@@ -239,7 +238,7 @@ public class DictionaryTestActivity extends BaseActivity implements View.OnClick
                 msg += str;
                 msg += "\n";
             }
-            showDialog(this,"字典文件丢失检测报告：", msg);
+            showDialog(this, "字典文件丢失检测报告：", msg);
         }
         tvInfo.setText(msg);
     }
@@ -282,9 +281,11 @@ public class DictionaryTestActivity extends BaseActivity implements View.OnClick
         } else {
             btnControl.setText("开启文件开机自动检测");
         }
-        if (isAutoFactory) {
+        int factoryNum = (Integer) SPUtils.get(this, Constant.AUTO_FACTORY_NUM, 0);
+        if (isAutoFactory && factoryNum > 0) {
             btnAutoFactory.setText("关闭自动恢复出厂设置");
         } else {
+            SPUtils.put(this, Constant.IS_AUTO_FACTORY, false);
             btnAutoFactory.setText("开启自动恢复出厂设置");
         }
     }

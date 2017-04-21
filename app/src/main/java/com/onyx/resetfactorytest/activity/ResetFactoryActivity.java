@@ -11,7 +11,7 @@ import com.onyx.resetfactorytest.R;
 import com.onyx.resetfactorytest.Constant;
 import com.onyx.resetfactorytest.utils.SPUtils;
 
-public class ResetFactoryActivity extends BaseActivity implements View.OnClickListener{
+public class ResetFactoryActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = ResetFactoryActivity.class.getSimpleName();
     private Button btnSettings;
     private Button btnStart;
@@ -34,7 +34,6 @@ public class ResetFactoryActivity extends BaseActivity implements View.OnClickLi
         } else {
             tvResetLeftNum.setText("0");
         }
-        isAutoFactory = (Boolean) (SPUtils.get(this, Constant.IS_AUTO_FACTORY, false));
         updateButtonStatus();
     }
 
@@ -73,10 +72,12 @@ public class ResetFactoryActivity extends BaseActivity implements View.OnClickLi
     }
 
     private void updateButtonStatus() {
-        if (isAutoFactory) {
+        int factoryNum = (Integer) SPUtils.get(this, Constant.AUTO_FACTORY_NUM, 0);
+        if (isAutoFactory && factoryNum > 0) {
             btnStart.setText("停止");
             satrtAutoResetFactory(this);
         } else {
+            SPUtils.put(this, Constant.IS_AUTO_FACTORY, false);
             btnStart.setText("开始");
         }
     }
@@ -87,6 +88,4 @@ public class ResetFactoryActivity extends BaseActivity implements View.OnClickLi
         SPUtils.put(this, Constant.IS_AUTO_FACTORY, isAutoFactory);
         updateButtonStatus();
     }
-
-
 }

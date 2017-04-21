@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Created by 12345 on 2017/4/7.
+ * Created by jaky on 2017/4/7.
  */
 
 public class AsyncRequest<T> {
@@ -33,7 +33,7 @@ public class AsyncRequest<T> {
     private void run() {
         if (requestType == REMOTE_DATA_REQUEST) {
 
-        } else if(requestType == DEFAULT_REQUEST){
+        } else if (requestType == DEFAULT_REQUEST) {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
@@ -79,7 +79,6 @@ public class AsyncRequest<T> {
         return handler;
     }
 
-
     private static class ResultData<Data> {
         AsyncRequest asyncRequest;
         Data data;
@@ -89,6 +88,4 @@ public class AsyncRequest<T> {
             this.data = data;
         }
     }
-
-
 }

@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.onyx.resetfactorytest.R;
 import com.onyx.resetfactorytest.Constant;
@@ -18,15 +19,23 @@ import com.onyx.resetfactorytest.utils.FileUtils;
 import com.onyx.resetfactorytest.utils.SPUtils;
 
 public abstract class BaseActivity extends Activity {
+    private static final String TAG = BaseActivity.class.getSimpleName();
     ActionBar mActionBar;
     public boolean isAutoFactory = false;
     public boolean isAutoReboot = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mActionBar = getActionBar();
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setHomeButtonEnabled(true);
+        isAutoFactory = (Boolean) SPUtils.get(this, Constant.IS_AUTO_FACTORY, false);
+        isAutoReboot = (Boolean) SPUtils.get(this, Constant.IS_AUTO_REBOOT, false);
+        if (isAutoFactory) {
+            isAutoReboot = false;
+            SPUtils.put(this, Constant.IS_AUTO_REBOOT, isAutoReboot);
+        }
         createActivity();
     }
 
@@ -44,9 +53,9 @@ public abstract class BaseActivity extends Activity {
 
     public void satrtAutoResetFactory(final Context context) {
         int factoryNum = (Integer) SPUtils.get(context, Constant.AUTO_FACTORY_NUM, 0);
-        if (factoryNum > 0) {
-            Log.d("===============","================剩余恢复出厂次数===="+factoryNum);
+        if (factoryNum > 0 && isAutoFactory) {
             factoryNum--;
+            Log.d(TAG, "================剩余恢复出厂次数====" + factoryNum);
             SPUtils.put(context, Constant.AUTO_FACTORY_NUM, factoryNum);
             FileUtils.copyFileByStream(Constant.DATA_PATH, Constant.EXTERNAL_PATH);
             new Handler().postDelayed(new Runnable() {
@@ -55,25 +64,26 @@ public abstract class BaseActivity extends Activity {
                     context.sendBroadcast(new Intent(Constant.MASTER_CLEAR_BROADCAST));
                 }
             }, Constant.DELAY_TIME);
-        }else{
+        } else {
             SPUtils.put(context, Constant.IS_AUTO_FACTORY, false);
         }
     }
 
     public void satrtAutoReboot(final Context context) {
         int rebootNum = (Integer) SPUtils.get(context, Constant.AUTO_REBOOT_NUM, 0);
-        if (rebootNum > 0) {
+        if (rebootNum > 0 && isAutoReboot && !isAutoFactory) {
             rebootNum--;
+            Log.d(TAG, "================剩余重启次数====" + rebootNum);
             SPUtils.put(context, Constant.AUTO_REBOOT_NUM, rebootNum);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    PowerManager pManager=(PowerManager) context.getSystemService(Context.POWER_SERVICE);
+                    PowerManager pManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
                     pManager.reboot(null);
                 }
             }, Constant.DELAY_TIME);
 
-        } else{
+        } else {
             SPUtils.put(this, Constant.IS_AUTO_REBOOT, false);
         }
     }

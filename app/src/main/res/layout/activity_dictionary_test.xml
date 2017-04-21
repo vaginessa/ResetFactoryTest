@@ -9,9 +9,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
         android:background="@drawable/border"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -98,6 +98,7 @@
         android:layout_marginTop="8dp"
         android:text="自动开机文件检测"
         android:textSize="20sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -107,8 +108,8 @@
             android:id="@+id/save_report"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginTop="8dp"
+            android:layout_weight="1"
             android:text="保存报告"
             android:textSize="20sp" />
 
@@ -116,8 +117,8 @@
             android:id="@+id/exit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginTop="8dp"
+            android:layout_weight="1"
             android:text="退出"
             android:textSize="20sp" />
     </LinearLayout>
@@ -125,8 +126,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/border"
         android:layout_marginTop="8dp"
+        android:background="@drawable/border"
         android:scrollbars="none">
 
         <TextView

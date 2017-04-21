@@ -8,13 +8,11 @@ import android.os.Handler;
 
 import com.onyx.resetfactorytest.Constant;
 
-
 public class ActivityUtil {
     public static void startActivity(Activity activity, Class clazz) {
         Intent intent = new Intent(activity, clazz);
         activity.startActivity(intent);
     }
-
 
     public static void startActivity(Context context, String packageName) {
         Intent intent = context.getPackageManager().getLaunchIntentForPackage(packageName);

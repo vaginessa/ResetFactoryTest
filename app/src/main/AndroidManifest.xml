@@ -33,12 +33,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.ResetFactoryActivity"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
-        <activity android:name=".activity.RebootActivity"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
-        <activity android:name=".activity.DictionaryTestActivity"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <activity
+            android:name=".activity.ResetFactoryActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name=".activity.RebootActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name=".activity.DictionaryTestActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
 
         <receiver android:name=".receiver.BootCompletedReceiver">
             <intent-filter>
