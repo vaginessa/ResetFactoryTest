@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
@@ -17,6 +18,8 @@ import com.onyx.resetfactorytest.R;
 import com.onyx.resetfactorytest.Constant;
 import com.onyx.resetfactorytest.utils.FileUtils;
 import com.onyx.resetfactorytest.utils.SPUtils;
+
+import java.io.IOException;
 
 public abstract class BaseActivity extends Activity {
     private static final String TAG = BaseActivity.class.getSimpleName();
@@ -78,8 +81,8 @@ public abstract class BaseActivity extends Activity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    PowerManager pManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-                    pManager.reboot(null);
+                    PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+                    pm.reboot(null);
                 }
             }, Constant.DELAY_TIME);
 

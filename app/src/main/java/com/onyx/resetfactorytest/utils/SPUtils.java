@@ -2,7 +2,6 @@ package com.onyx.resetfactorytest.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v4.content.SharedPreferencesCompat;
 
 import com.onyx.resetfactorytest.Constant;
 
@@ -28,7 +27,7 @@ public class SPUtils {
         } else if (value instanceof Long) {
             edit.putLong(key, (Long) value);
         }
-        SharedPreferencesCompat.EditorCompat.getInstance().apply(edit);
+        edit.apply();
     }
 
     public static Object get(Context context, String key, Object defValue) {
@@ -57,14 +56,14 @@ public class SPUtils {
         SharedPreferences sp = context.getSharedPreferences(Constant.FILLNAME, Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
         SharedPreferences.Editor edit = sp.edit();
         edit.remove(key);
-        SharedPreferencesCompat.EditorCompat.getInstance().apply(edit);
+        edit.apply();
     }
 
     public static void clear(Context context) {
         SharedPreferences sp = context.getSharedPreferences(Constant.FILLNAME, Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
         SharedPreferences.Editor edit = sp.edit();
         edit.clear();
-        SharedPreferencesCompat.EditorCompat.getInstance().apply(edit);
+        edit.apply();
     }
 
 }

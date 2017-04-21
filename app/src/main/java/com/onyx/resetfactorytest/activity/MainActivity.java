@@ -46,6 +46,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.btn_dict_test:
                 ActivityUtil.startActivity(this, DictionaryTestActivity.class);
                 break;
+            case R.id.btn_set_time:
+                
+                break;
             case R.id.btn_exit:
                 MainActivity.this.finish();
                 break;

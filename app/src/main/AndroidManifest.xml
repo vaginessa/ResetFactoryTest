@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.onyx.resetfactorytest">
+    package="com.onyx.resetfactorytest"
+    android:sharedUserId="android.uid.system">
 
-    <!-- android:sharedUserId="android.uid.system" -->
+    <!--  -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission
-        android:name="android.permission.MASTER_CLEAR"
-        tools:ignore="ProtectedPermissions" />
-    <uses-permission
-        android:name="android.permission.REBOOT"
-        tools:ignore="ProtectedPermissions" />
-    <uses-permission
-        android:name="android.permission.SHUTDOWN"
-        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.MASTER_CLEAR"/>
+    <uses-permission android:name="android.permission.REBOOT"/>
+    <uses-permission android:name="android.permission.SHUTDOWN"/>
 
     <application
         android:allowBackup="true"

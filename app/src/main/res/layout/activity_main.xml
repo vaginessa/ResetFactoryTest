@@ -36,6 +36,14 @@
         android:textSize="20sp" />
 
     <Button
+        android:id="@+id/btn_set_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="设置系统时间"
+        android:textSize="20sp" />
+
+    <Button
         android:id="@+id/btn_exit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
