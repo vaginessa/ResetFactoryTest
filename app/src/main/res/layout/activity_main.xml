@@ -36,6 +36,21 @@
         android:textSize="20sp" />
 
     <Button
+        android:id="@+id/btn_install_app_to_ssytem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="安装"
+        android:textSize="20sp" />
+    <Button
+        android:id="@+id/btn_remove_app_from_ssytem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="卸载"
+        android:textSize="20sp" />
+
+    <Button
         android:id="@+id/btn_exit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

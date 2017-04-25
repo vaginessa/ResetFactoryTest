@@ -27,6 +27,9 @@ public class Constant {
     public static final String MASTER_CLEAR_BROADCAST = "android.intent.action.MASTER_CLEAR";
     public static final String BOOT_COMPLETED_BROADCAST = "android.intent.action.BOOT_COMPLETED";
 
+    public static final String COPY_TEST_APK_TO_SYSTEM = "copy_test_apk_to_system";
+    public static final String DELETE_TEST_APK_FROM_SYSTEM = "delete_test_apk_from_system";
+
     public static final int DELAY_START_ACTIVITY_TIME = 3 * 1000;
     public static final int DELAY_TIME = 2 * 1000;
 }
